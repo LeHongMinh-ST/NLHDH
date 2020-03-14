@@ -29,3 +29,11 @@ p {
 .left {
     padding-left: 380px;
 }
+
+input {
+    text-align: center;
+}
+
+li {
+    list-style: none;
+}

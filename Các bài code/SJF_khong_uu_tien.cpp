@@ -14,7 +14,7 @@ struct tientrinh
 //    int t_xuly;//thoi gian thuc hien cua tien trinh
 
 };
-int timeout;//thoi gian cuoi cung cua tien trinh vua ket thuc
+int timeout = 0;//thoi gian cuoi cung cua tien trinh vua ket thuc
 
 //khai bao ham
 void sjf(tientrinh a[],int n);
@@ -93,8 +93,6 @@ void sjf(tientrinh a[],int n)
 					a[j]=tg;
 				}
 			}
-			for(int j=i+1;j<n;j++) cout<<" "<<a[j].t_xh;
-			cout<<"/";
 		}
 		else
 		{
@@ -112,8 +110,6 @@ void sjf(tientrinh a[],int n)
 					a[j]=tg;
 				}
 			}
-			for(int j=i+1;j<n;j++) cout<<" "<<a[j].t_xh;
-			cout<<"|";
 		}
 		if (i == 0)//xu ly voi tien trinh dau tien.(t xuat hien be nhat)
         {
