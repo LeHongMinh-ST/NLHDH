@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SJF Không Ưu Tiên</title>
+    <title>Priority</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
@@ -13,6 +13,9 @@
     <center>
         <div class="alert alert-secondary" role="alert">
             <h1><b>NGUYÊN LÝ HỆ ĐIỀU HÀNH</b></h1>
+        </div>
+        <div>
+            <h4>Giải thuật Priority</h4>
         </div>
         <h5>Số tiến trình phải thực hiện là:</h5>
         <div>
@@ -25,16 +28,16 @@
         <div style="width: 50%; display: none;" class="sz">
             <table class="table table-bordered table-dark">
                 <thead>
-                    <tr>
-                        <th scope="col" style="text-align: center;">Process</th>
-                        <th scope="col" style="text-align: center;">Arival Time (s)</th>
-                        <th scope="col" style="text-align: center;">Burst Time (s)</th>
+                    <tr style="text-align: center;">
+                        <th scope="col">Process</th>
+                        <th scope="col">Burst Time(s)</th>
+                        <th scope="col">Priority</th>
                     </tr>
                 </thead>
                 <tbody class="a">
                 </tbody>
             </table>
-            <button type="submit" class="btn btn-success result-btn">Submit</button>
+            <button type="button" class="btn btn-success result-btn">Submit</button>
         </div>
     </center>
     <div class="result" style="display: none;">
@@ -46,10 +49,9 @@
         <h5 class="left wait_avg"></h5>
     </div>
 
-
 </body>
 
 <script src="../js/jquery.js"></script>
-<script src="../js/main.js"></script>
+<script src="../js/priority.js"></script>
 
 </html>

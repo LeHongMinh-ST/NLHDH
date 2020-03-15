@@ -4,7 +4,12 @@ $(document).ready(function() {
 
     //Giải thuật SJF
     $(".process_sbm").click(function(event) {
+        $(".result").hide()
         var process = $("#process").val();
+        if (process < 2) {
+            alert('Số tiến trình phải lớn hơn 2');
+            return;
+        }
         $("tbody tr").remove();
         if (process > 0) {
             for (i = 1; i <= process; i++) {
@@ -26,9 +31,11 @@ $(document).ready(function() {
             var process_array = new Array();
             for (i = 1; i <= process; i++) {
                 var processObject = new Object();
+
                 processObject.name = "P" + i;
                 processObject.arival = $('#arival' + i).val();
                 processObject.burst = $('#burst' + i).val();
+
                 process_array.push(processObject);
             }
 
@@ -77,13 +84,13 @@ $(document).ready(function() {
             }
 
             for (i = 0; i < process; i++) {
-                let row = "<li> " + process_array[i].name + " = " + process_array[i].wait + " </li>"
+                let row = "<li> " + process_array[i].name + " = " + process_array[i].wait + "s </li>"
                 $("ul").append(row);
                 sum = sum + process_array[i].wait
             }
             var avg = sum / process;
 
-            $(".wait_avg").append("Thời gian chờ đợi trung bình =" + avg + " s");
+            $(".wait_avg").append("Thời gian chờ đợi trung bình = " + avg + "s");
             $(".result").show();
         })
     })
