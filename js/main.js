@@ -18,6 +18,9 @@ $(document).ready(function() {
         }
 
         $('.result-btn').click(function(event) {
+            $("ul li").empty();
+            $(".wait_avg").empty();
+
             var timeout = 0;
             var sum = 0;
             var process_array = new Array();
@@ -80,7 +83,7 @@ $(document).ready(function() {
             }
             var avg = sum / process;
 
-            $(".wait_avg").append(avg + " s");
+            $(".wait_avg").append("Thời gian chờ đợi trung bình =" + avg + " s");
             $(".result").show();
         })
     })
