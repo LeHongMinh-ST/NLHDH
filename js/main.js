@@ -31,22 +31,25 @@ $(document).ready(function() {
 
             for (i = 0; i < process; i++) {
 
+                var temp = new Object();
 
                 //Sắp xếp các tiến trình
                 if (process_array[i].arival >= timeout) {
                     for (j = i + 1; j < process; j++) {
-                        if (process_array[j].arival < process_array[i].arival || process_array[j].arival == process_array[i].arival && process_array[j].burst < process_array.burst) {
-                            let temp = process_array[i];
+                        if ((process_array[j].arival < process_array[i].arival) || (process_array[j].arival == process_array[i].arival && process_array[j].burst < process_array[i].burst)) {
+                            temp = process_array[i];
                             process_array[i] = process_array[j];
                             process_array[j] = temp;
+
                         }
                     }
                 } else {
                     for (j = i + 1; j < process; j++) {
-                        if ((process_array[j].burst < process_array[i].burst || process_array[j].burst == process_array[i].burst && process_array[j].arival < process_array.arival) && process_array[j] <= timeout) {
-                            let temp = process_array[i];
+                        if (((process_array[j].burst < process_array[i].burst) || (process_array[j].burst == process_array[i].burst && process_array[j].arival < process_array[i].arival)) && process_array[j].arival <= timeout) {
+                            temp = process_array[i];
                             process_array[i] = process_array[j];
                             process_array[j] = temp;
+
                         }
                     }
                 }
@@ -71,14 +74,13 @@ $(document).ready(function() {
             }
 
             for (i = 0; i < process; i++) {
-                j = i + 1;
-                let row = "<li> P" + j + " = " + process_array[i].wait + " </li>"
+                let row = "<li> " + process_array[i].name + " = " + process_array[i].wait + " </li>"
                 $("ul").append(row);
                 sum = sum + process_array[i].wait
             }
             var avg = sum / process;
 
-            $(".wait_avg").append(avg + "s");
+            $(".wait_avg").append(avg + " s");
             $(".result").show();
         })
     })
