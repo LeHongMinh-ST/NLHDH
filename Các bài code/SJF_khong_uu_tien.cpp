@@ -79,7 +79,6 @@ void sjf(tientrinh a[],int n)
 		if(a[i].t_xh>=timeout)/*neu thoi gian xuat hien cua tien trinh vua nap >= thoi gian ket thuc cua tien trinh truoc
 									thi phai chon tien trinh co thoi gian XUAT HIEN nho nhat tiep theo*/
 		{
-			cout<<"/";
 			for(int j=i+1;j<n;j++)
 			{
 				/* neu thoi gian XUAT HIEN cua j < cua i
@@ -96,7 +95,6 @@ void sjf(tientrinh a[],int n)
 		}
 		else
 		{
-			cout<<"|";
 			for(int j=i+1;j<n;j++)
 			{
                 /*
