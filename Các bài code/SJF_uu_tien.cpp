@@ -27,8 +27,7 @@ int main()
 }
 //===Dinh nghia ham
 // Ham tim thoi gian cho cho cac tien trinh
-void findWaitingTime(Process proc[], int n, 
-                                int wt[]) 
+void findWaitingTime(Process proc[], int n, int wt[]) 
 { 
     int rt[n]; 
   
