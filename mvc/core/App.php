@@ -1,31 +1,29 @@
 <?php
 require_once "./mvc/core/Controllers.php";
+
 class App extends Controllers
 {
     protected $mod;
     protected $act;
-    protected $prarams =[];
+
 
     public function __construct()
     {
-        $arr = $this->UrlProcess();
 
-        $this->mod = isset($arr[0])?$arr[0]:'';
-        $this->act = isset($arr[1])?$arr[1]:'';
-        $this->prarams = $arr ? array_values($arr) : [];
+        $this->mod = (isset($_GET['mod']) ? $_GET['mod'] : '');
+        $this->act = (isset($_GET['act']) ? $_GET['act'] : 'list');
+
     }
 
     public function action()
     {
-        switch ($this->mod)
-        {
+        switch ($this->mod) {
             case 'post':
 
                 $controller_obj = $this->controller('PostController');
-                switch ($this->act)
-                {
+                switch ($this->act) {
                     case 'test':
-                        $controller_obj->test($this->prarams);
+                        $controller_obj->test();
                         break;
                 }
                 break;
@@ -33,14 +31,6 @@ class App extends Controllers
                 break;
         }
     }
-
-    public function UrlProcess(){
-        if(isset($_GET["url"])){
-            $url = $_GET["url"];
-            $url = $url[strlen($url)-1] == "/" && strlen($url) != 1 ? $url : $url . "/";
-            return explode("/",filter_var(trim($url)));
-        }
-        return [""];
-    }
 }
+
 ?>
